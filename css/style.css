@@ -7,14 +7,30 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #fff; /* Fondo blanco */
-  color: #000; /* Texto negro */
+  background-color: #fff;
+  color: #000;
+
+  /* === CAMBIO IMPORTANTE === */
+  /* Empujamos todo el contenido hacia abajo para que el menú fijo no lo tape */
+  /* Si ves una franja blanca muy grande arriba, baja este número (ej. 140px) */
+  /* Si el menú tapa el título, súbelo (ej. 180px) */
+  padding-top: 160px;
 }
 
 /* === 2. Encabezado (Header) === */
 header {
   background-color: #fff;
-  border-bottom: 1px solid #ddd; /* Línea sutil abajo */
+  border-bottom: 1px solid #ddd;
+
+  /* === LA FUERZA BRUTA === */
+  position: fixed; /* Se queda clavado en la pantalla, no depende del scroll */
+  top: 0;          /* Pegado al techo */
+  left: 0;         /* Pegado a la izquierda */
+  width: 100%;     /* Obligatorio: que ocupe todo el ancho de la pantalla */
+  height: auto;    /* Que su altura sea automática según el logo */
+
+  z-index: 1000;   /* Siempre encima de todo */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 /* Contenedor del logo centrado */
