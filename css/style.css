@@ -122,3 +122,108 @@ footer {
   font-size: 0.9rem;
   color: #666;
 }
+
+/* === ESTILOS ESPECÍFICOS PARA PÁGINA QUIÉNES SOMOS === */
+/* === CORRECCIÓN DEFINITIVA PÁGINA QUIÉNES SOMOS === */
+
+.about-section {
+  width: 100%;
+  height: 600px; /* Altura fija */
+  background-color: #000; /* Fondo base negro */
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  /* === AQUÍ ESTÁ EL TRUCO DE LAS CAPAS === */
+  /* Capa 1 (Arriba): Degradado de Negro Sólido a Transparente */
+  /* Capa 2 (Abajo): La imagen de la cerveza */
+  background-image:
+    linear-gradient(to right, #000 60%, rgba(0,0,0,0) 85%),
+    url('../nosotrosimg.png');
+
+  /* === TAMAÑOS INDEPENDIENTES (La clave del éxito) === */
+  /* 1. El degradado (100% ancho, 100% alto) para que cubra todo */
+  /* 2. La imagen (auto ancho, 100% alto) para que no se deforme */
+  background-size: 100% 100%, auto 100%;
+
+  /* === POSICIONES === */
+  /* El degradado parte de la izquierda, la imagen se pega a la derecha */
+  background-position: left center, right center;
+
+  background-repeat: no-repeat;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.about-text {
+  max-width: 50%; /* El texto ocupa la mitad izquierda */
+  color: #fff;
+  z-index: 2; /* Asegura que el texto quede sobre el degradado */
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+  color: #e0e0e0;
+}
+
+/* === RESPONSIVE (Para celulares) === */
+@media (max-width: 768px) {
+  .about-section {
+    height: auto;
+    padding: 60px 0;
+    /* En celular cambiamos el degradado hacia abajo */
+    background-image:
+      linear-gradient(to bottom, #000 20%, rgba(0,0,0,0.7) 100%),
+      url('../nosotrosimg.png');
+
+    /* En celular la imagen cubre todo el fondo */
+    background-size: 100% 100%, cover;
+    background-position: center;
+  }
+
+  .about-text {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-text p {
+    text-align: center;
+  }
+}
+/* === TRANSICIONES ENTRE PÁGINAS === */
+
+/* 1. Animación de Entrada (Fade In) */
+/* Se aplica automáticamente al body cada vez que carga una página */
+body {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); /* Un pequeño salto sutil */ }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. Clase de Salida (Fade Out) */
+/* Esta clase se la pondremos con JS cuando el usuario quiera irse */
+body.fading-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in; /* Tiene que durar lo mismo que el setTimeout del JS */
+}
