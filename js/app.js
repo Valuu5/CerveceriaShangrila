@@ -1,33 +1,48 @@
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('Sistema de transiciones listo');
 
-  // Seleccionamos todos los enlaces de la página (etiquetas <a>)
-  const links = document.querySelectorAll('a');
+  // === 1. VARIABLES GLOBALES ===
+  const menuToggle = document.getElementById('mobile-menu'); // El botón de las 3 rayitas
+  const navLinksContainer = document.querySelector('.nav-links'); // La lista blanca que se despliega
+  const navLinksItems = document.querySelectorAll('.nav-item'); // Cada uno de los enlaces (Inicio, Nosotros...)
+  const sections = document.querySelectorAll('section'); // Las secciones de la página (para el scroll)
 
-  links.forEach(link => {
-    link.addEventListener('click', function(e) {
-      const destino = this.href;
+  // === 2. LÓGICA MENÚ HAMBURGUESA (Móvil) ===
+  if (menuToggle) {
+    // Al tocar el icono, abrimos/cerramos el menú
+    menuToggle.addEventListener('click', () => {
+      navLinksContainer.classList.toggle('active');
+    });
+  }
 
-      // Verificamos que sea un link interno real (que lleve a otro HTML)
-      // y que no sea solo un "#" o un link externo que abra en otra pestaña
-      if (destino.includes(window.location.origin) && !destino.includes('#') && this.target !== '_blank') {
-
-        e.preventDefault(); // ¡Alto ahí! No cambies de página todavía.
-
-        // 1. Añadimos la clase que hace que el cuerpo se desvanezca
-        document.body.classList.add('fading-out');
-
-        // 2. Esperamos 500ms (lo mismo que dura la transición CSS)
-        setTimeout(function() {
-          window.location.href = destino; // Ahora sí, vete a la nueva página.
-        }, 500);
+  // Al tocar un enlace, cerramos el menú automáticamente (para que veas la página)
+  navLinksItems.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinksContainer.classList.contains('active')) {
+        navLinksContainer.classList.remove('active');
       }
     });
   });
 
-  if (document.querySelector('.about-section')) {
-    console.log('Estás en la sección Quiénes Somos');
-  } else {
-    console.log('Estás en el Inicio');
-  }
+  // === 3. SCROLL SPY (Menú Inteligente) ===
+  // Detecta en qué parte de la página estás para iluminar la pestaña correcta
+  window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      // Ajustamos -180 para compensar la altura de tu menú fijo
+      if (window.scrollY >= (sectionTop - 180)) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinksItems.forEach(link => {
+      link.classList.remove('active');
+      // Si el link apunta al id actual (ej: href="#nosotros" y current="nosotros")
+      if (link.getAttribute('href').includes(current)) {
+        link.classList.add('active');
+      }
+    });
+  });
+
 });

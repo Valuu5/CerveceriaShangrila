@@ -273,3 +273,65 @@ body.fading-out {
   opacity: 0;
   transition: opacity 0.5s ease-in; /* Tiene que durar lo mismo que el setTimeout del JS */
 }
+
+/* === ESTILOS POR DEFECTO DEL BOTÓN HAMBURGUESA (Escondido en PC) === */
+.menu-toggle {
+  display: none; /* En el compu no se ve */
+}
+
+/* === MODO CELULAR (Pantallas menores a 768px) === */
+@media (max-width: 768px) {
+
+  /* 1. Ajustes del Encabezado para que no ocupe media pantalla */
+  body { padding-top: 100px; } /* Empujamos menos el contenido */
+  section { scroll-margin-top: 100px; } /* Ajuste del scroll */
+
+  .logo-img { max-height: 40px; } /* Logo más chico */
+  .logo-container { padding: 5px 0; }
+
+  .navbar {
+    padding: 10px 20px; /* Menos relleno */
+    justify-content: flex-end; /* Alinea el icono a la derecha */
+    position: relative; /* Necesario para que el menú flotante se posicione bien */
+  }
+
+  /* 2. Mostramos el Botón Hamburguesa */
+  .menu-toggle {
+    display: block; /* Ahora sí se ve */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #000;
+  }
+
+  /* 3. Escondemos los links y iconos normales */
+  .nav-icons { display: none; } /* Ocultamos iconos de usuario/carrito por espacio */
+
+  .nav-links {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%; /* Justo debajo de la barra */
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Fondo blanco */
+    flex-direction: column; /* Lista vertical */
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1); /* Sombrita */
+    padding: 10px 0;
+  }
+
+  /* 4. Estilo de los botones en modo celular */
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-item {
+    display: block;
+    width: 100%;
+    padding: 15px 0; /* Botones más grandes para el dedo */
+  }
+
+  /* 5. CLASE MÁGICA: Cuando activemos el menú con JS, se mostrará así */
+  .nav-links.active {
+    display: flex; /* ¡Aparece! */
+  }
+}
