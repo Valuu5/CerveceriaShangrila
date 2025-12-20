@@ -41,22 +41,7 @@ section {
 
 /* ... (Estilos de Inicio / Hero Banner iguales) ... */
 
-/* === ESTILOS SECCIÓN NOSOTROS (Mantenemos tu diseño oscuro) === */
-.about-section {
-  width: 100%;
-  height: 600px;
-  background-color: #000;
-  display: flex;
-  align-items: center;
-  position: relative;
-  /* Tu degradado ajustado */
-  background-image:
-    linear-gradient(to right, #000 55%, rgba(0,0,0,0) 100%),
-    url('../nosotrosimg.png');
-  background-size: 100% 100%, auto 100%;
-  background-position: left center, right center;
-  background-repeat: no-repeat;
-}
+
 .placeholder-section {
   padding: 100px 5%;
   text-align: center;
@@ -236,7 +221,7 @@ footer {
     padding: 60px 0;
     /* En celular cambiamos el degradado hacia abajo */
     background-image:
-      linear-gradient(to bottom, #000 5%, rgba(0,0,0,0.7) 100%),
+      linear-gradient(to bottom, #000 1%, rgba(0,0,0,0.7) 60%),
       url('../nosotrosimg.png');
 
     /* En celular la imagen cubre todo el fondo */
