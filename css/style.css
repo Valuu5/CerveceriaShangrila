@@ -17,7 +17,7 @@ body {
   background-color: #fff;
   color: #000;
   /* Ajuste para que el contenido no quede pegado arriba por el menú fijo */
-  padding-top: 160px;
+  padding-top: 100px;
 }
 
 /* === HEADER FIJO === */
@@ -71,7 +71,7 @@ section {
 }
 
 .logo-img {
-  max-height: 80px; /* Ajusta el tamaño del logo si es necesario */
+  max-height: 60px; /* Ajusta el tamaño del logo si es necesario */
   width: auto;
 }
 
