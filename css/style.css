@@ -236,7 +236,7 @@ footer {
     padding: 60px 0;
     /* En celular cambiamos el degradado hacia abajo */
     background-image:
-      linear-gradient(to bottom, #000 20%, rgba(0,0,0,0.7) 100%),
+      linear-gradient(to bottom, #000 10%, rgba(0,0,0,0.7) 100%),
       url('../nosotrosimg.png');
 
     /* En celular la imagen cubre todo el fondo */
