@@ -1,6 +1,4 @@
 /* === 1. Configuración General === */
-
-/* Reseteo básico para quitar márgenes por defecto */
 * {
   margin: 0;
   padding: 0;
@@ -9,98 +7,118 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  /* Fondo degradado azul, similar al de la imagen de ejemplo */
-  background: linear-gradient(135deg, #004e92, #000428);
-  color: #fff; /* Texto blanco para que contraste */
-  min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+  background-color: #fff; /* Fondo blanco */
+  color: #000; /* Texto negro */
 }
 
-/* === 2. Barra de Navegación (Navbar) === */
-.navbar {
-  display: flex; /* Alinea los elementos en una fila */
-  justify-content: space-between; /* Logo a la izq, menú a la der */
-  align-items: center; /* Centra verticalmente */
-  padding: 1.5rem 5%; /* Espaciado interno */
+/* === 2. Encabezado (Header) === */
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd; /* Línea sutil abajo */
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700; /* Negrita */
-  letter-spacing: 1px;
-}
-
-nav {
+/* Contenedor del logo centrado */
+.logo-container {
   display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.logo-img {
+  max-height: 80px; /* Ajusta el tamaño del logo si es necesario */
+  width: auto;
+}
+
+/* === 3. Barra de Navegación (Navbar) === */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Enlaces a la izq, iconos a la der */
   align-items: center;
+  background-color: #fff;
 }
 
-.nav-links a {
-  color: #fff;
-  text-decoration: none; /* Quita el subrayado de los enlaces */
-  margin-right: 2rem; /* Espacio entre enlaces */
-  font-weight: 500;
-  transition: color 0.3s;
+/* Lista de enlaces */
+.nav-links {
+  display: flex;
+  list-style: none; /* Quita los puntos de la lista */
 }
 
-.nav-links a:hover {
-  color: #ff9900; /* Cambia a naranja al pasar el mouse */
+.nav-links li {
+  margin: 0;
 }
 
-/* Botón de Iniciar Sesión (Estilo Naranja) */
-.btn-login {
-  background-color: #ff9900; /* Color naranja vibrante */
-  color: #fff;
+/* Estilo de cada enlace del menú */
+.nav-item {
   text-decoration: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px; /* Bordes ligeramente redondeados */
-  font-weight: 700;
+  color: #000;
+  padding: 15px 25px; /* Espaciado interno para que parezcan botones */
+  display: block;
+  font-weight: 500;
   transition: background-color 0.3s;
 }
 
-.btn-login:hover {
-  background-color: #e68a00; /* Un naranja un poco más oscuro al pasar el mouse */
-}
-
-/* === 3. Sección Principal (Hero) === */
-.hero {
-  /* Centra el contenido vertical y horizontalmente */
-  display: flex;
-  align-items: center;
-  padding: 0 5%;
-  height: 80vh; /* Ocupa el 80% de la altura de la pantalla */
-}
-
-.hero-content {
-  max-width: 600px; /* Limita el ancho del texto para que se lea mejor */
-}
-
-.hero h1 {
-  font-size: 4rem; /* Título muy grande */
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.1;
-}
-
-.hero p {
-  font-size: 1.25rem; /* Subtítulo más grande */
-  margin-bottom: 2.5rem;
-  opacity: 0.9; /* Un poco transparente */
-}
-
-/* Botón Principal (Ver Catálogo) */
-.btn-primary {
-  background-color: #ff9900;
+/* Estilo para el botón "Inicio" activo (Fondo negro, texto blanco) */
+.nav-item.active {
+  background-color: #000;
   color: #fff;
-  border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border-radius: 4px;
-  cursor: pointer; /* Cambia el cursor a manito */
-  transition: transform 0.2s, background-color 0.3s;
 }
 
-.btn-primary:hover {
-  background-color: #e68a00;
-  transform: translateY(-3px); /* Pequeño efecto de elevación */
+/* Efecto hover para los otros enlaces */
+.nav-item:not(.active):hover {
+  background-color: #f0f0f0; /* Gris claro al pasar el mouse */
+}
+
+/* Iconos de la derecha */
+.nav-icons {
+  padding-right: 30px;
+  font-size: 1.2rem;
+}
+
+.nav-icons a {
+  color: #000;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* === 4. Contenido Principal (Main) === */
+
+/* Imagen del banner */
+.hero-banner {
+  width: 100%;
+}
+
+.banner-img {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: auto; /* Mantiene la proporción */
+  display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Sección de texto */
+.content-section {
+  padding: 40px 5%; /* Espaciado a los lados */
+  max-width: 1200px; /* Ancho máximo para que no se estire mucho en pantallas grandes */
+  margin: 0 auto; /* Centrado horizontal */
+}
+
+.content-section h1 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #000;
+}
+
+.content-section p {
+  font-size: 1rem;
+  line-height: 1.6; /* Espacio entre líneas para mejor lectura */
+  margin-bottom: 20px;
+  text-align: justify; /* Texto justificado como en la imagen */
+}
+
+/* === 5. Pie de Página (Footer) === */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  font-size: 0.9rem;
+  color: #666;
 }
