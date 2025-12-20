@@ -184,7 +184,7 @@ footer {
   /* Capa 1 (Arriba): Degradado de Negro Sólido a Transparente */
   /* Capa 2 (Abajo): La imagen de la cerveza */
   background-image:
-    linear-gradient(to right, #000 60%, rgba(0,0,0,0) 85%),
+    linear-gradient(to right, #000 65%, rgba(0,0,0,0) 85%),
     url('../nosotrosimg.png');
 
   /* === TAMAÑOS INDEPENDIENTES (La clave del éxito) === */
