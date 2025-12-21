@@ -313,7 +313,7 @@ footer {
   width: auto;
   transition: transform 0.3s ease;
   filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
-  margin-left: 65px; /* Empuja la imagen 30px hacia la derecha desde el centro */
+  margin-left: 120px; /* Empuja la imagen 30px hacia la derecha desde el centro */
 }
 
 .product-jockey-img{
