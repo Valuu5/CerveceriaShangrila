@@ -736,56 +736,56 @@ body.fading-out {
 /* === MODO CELULAR (Pantallas menores a 768px) === */
 @media (max-width: 768px) {
 
-  /* 1. Ajustes del Encabezado para que no ocupe media pantalla */
-  body { padding-top: 100px; } /* Empujamos menos el contenido */
-  section { scroll-margin-top: 100px; } /* Ajuste del scroll */
-
-  .logo-img { max-height: 40px; } /* Logo más chico */
-  .logo-container { padding: 5px 0; }
+  /* 1. Ajustes del Encabezado */
+  body { padding-top: 100px; }
+  section { scroll-margin-top: 100px; }
 
   .navbar {
-    padding: 10px 20px; /* Menos relleno */
-    justify-content: flex-end; /* Alinea el icono a la derecha */
-    position: relative; /* Necesario para que el menú flotante se posicione bien */
+    padding: 10px 20px;
+    justify-content: flex-end; /* Alinea todo a la derecha */
+    align-items: center; /* Centra verticalmente */
   }
 
-  /* 2. Mostramos el Botón Hamburguesa */
+  /* === AQUÍ ESTÁ EL ARREGLO === */
+  /* Antes decía display: none; ¡Cámbialo por esto! */
+  .nav-icons {
+    display: flex;       /* ¡Ahora sí se ven! */
+    gap: 20px;           /* Espacio entre el monito y el carrito */
+    margin-right: 20px;  /* Espacio para separarlos del menú de rayitas */
+    align-items: center;
+  }
+
+  /* Ajustamos el tamaño de los iconos para celular */
+  .nav-icons a {
+    font-size: 1.3rem;
+    color: #000;
+  }
+
+  /* 2. Botón Hamburguesa */
   .menu-toggle {
-    display: block; /* Ahora sí se ve */
+    display: block;
     font-size: 1.8rem;
     cursor: pointer;
     color: #000;
   }
 
-  /* 3. Escondemos los links y iconos normales */
-  .nav-icons { display: none; } /* Ocultamos iconos de usuario/carrito por espacio */
-
+  /* 3. El menú desplegable (Mantenemos esto igual) */
   .nav-links {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: absolute;
-    top: 100%; /* Justo debajo de la barra */
+    top: 100%;
     left: 0;
     width: 100%;
-    background-color: #fff; /* Fondo blanco */
-    flex-direction: column; /* Lista vertical */
+    background-color: #fff;
+    flex-direction: column;
     text-align: center;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1); /* Sombrita */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     padding: 10px 0;
   }
 
-  /* 4. Estilo de los botones en modo celular */
-  .nav-links li {
-    margin: 10px 0;
-  }
+  .nav-links.active { display: flex; }
 
-  .nav-item {
-    display: block;
-    width: 100%;
-    padding: 15px 0; /* Botones más grandes para el dedo */
-  }
+  .nav-links li { margin: 10px 0; }
 
-  /* 5. CLASE MÁGICA: Cuando activemos el menú con JS, se mostrará así */
-  .nav-links.active {
-    display: flex; /* ¡Aparece! */
-  }
+  .products-grid { grid-template-columns: 1fr !important; padding: 0 20px;}
 }
