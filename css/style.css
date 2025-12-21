@@ -34,9 +34,9 @@ header {
 
 /* === AJUSTE PARA QUE EL MENÚ NO TAPE EL CONTENIDO AL BAJAR === */
 section {
-  /* Cuando bajes a una sección, el navegador dejará este espacio arriba */
-  /* Tiene que ser un poco más que la altura de tu menú (aprox 160px + 20px aire) */
-  scroll-margin-top: 180px;
+  /* Antes tenías 180px o más. */
+  /* Bájalo para que no frene tan arriba. */
+  scroll-margin-top: 133px; /* <--- PRUEBA CON ESTE VALOR */
 }
 
 /* ... (Estilos de Inicio / Hero Banner iguales) ... */
@@ -317,17 +317,21 @@ footer {
 }
 
 .product-jockey-img{
-  height: 110%; /* Un poco más alto que la caja para que "salga" un poco */
+  height: 123%; /* Un poco más alto que la caja para que "salga" un poco */
   width: auto;
   transition: transform 0.3s ease;
   filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
   margin-left: 65px; /* Empuja la imagen 30px hacia la derecha desde el centro */
+  margin-bottom: -26px;
 }
 
 .product-card:hover .product-img {
   transform: scale(1.05); /* Zoom suave al pasar el mouse */
 }
 
+.product-card:hover .product-jockey-img {
+  transform: scale(1.05); /* Zoom suave al pasar el mouse */
+}
 /* === INFORMACIÓN DEBAJO DE LA FOTO === */
 .product-info {
   display: flex; /* Pone texto a la izq y botón a la der */

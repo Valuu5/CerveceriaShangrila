@@ -261,22 +261,30 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  // === 3. SCROLL SPY (Menú Inteligente) ===
-  // Detecta en qué parte de la página estás para iluminar la pestaña correcta
+  // === 3. SCROLL SPY (Ajustado para Productos) ===
   window.addEventListener('scroll', () => {
     let current = '';
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
-      // Ajustamos -180 para compensar la altura de tu menú fijo
-      if (window.scrollY >= (sectionTop - 180)) {
+
+      // === AQUÍ ESTÁ EL CAMBIO ===
+      // Antes tenías -180. Lo cambiamos a -250.
+      // Esto hace que la pestaña se active "antes" de que el título toque el menú negro.
+      // Traducción: Detecta la sección cuando entra al tercio superior de la pantalla.
+      if (window.scrollY >= (sectionTop - 250)) {
         current = section.getAttribute('id');
       }
     });
 
+    // TRAMPA FINAL (Mantenla para que Contactanos siga funcionando bien)
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+      current = 'contacto';
+    }
+
+    // Pintamos la pestaña correcta
     navLinksItems.forEach(link => {
       link.classList.remove('active');
-      // Si el link apunta al id actual (ej: href="#nosotros" y current="nosotros")
       if (link.getAttribute('href').includes(current)) {
         link.classList.add('active');
       }
