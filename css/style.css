@@ -405,6 +405,96 @@ footer {
   padding: 2px;
   z-index: 10;
 }
+
+/* === ESTILOS DEL BOTÓN DE COMPRA === */
+.cart-summary {
+  width: 80%;
+  margin: 0 auto;
+  text-align: right;
+  padding-bottom: 50px;
+}
+
+.btn-checkout {
+  margin-top: 20px;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ESTADO 1: ACTIVADO (Hay productos) */
+.btn-checkout:enabled {
+  background-color: #000; /* Negro elegante */
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-checkout:enabled:hover {
+  background-color: #f3b13c; /* Verde éxito al pasar el mouse */
+  transform: translateY(-2px);
+}
+
+/* ESTADO 2: DESACTIVADO (Carrito vacío) */
+.btn-checkout:disabled {
+  background-color: #e0e0e0; /* Gris apagado */
+  color: #a0a0a0; /* Texto gris claro */
+  cursor: not-allowed; /* Icono de prohibido */
+  box-shadow: none;
+}
+
+/* === ESTILOS DE LA VENTANA MODAL (POP-UP) === */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.7); /* Fondo negro semitransparente */
+  display: none; /* Oculto por defecto */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Por encima de todo */
+  animation: fadeIn 0.3s;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  animation: scaleUp 0.3s;
+}
+
+.modal-icon {
+  font-size: 4rem;
+  color: #28a745; /* Verde Check */
+  margin-bottom: 20px;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.btn-modal {
+  margin-top: 20px;
+  padding: 10px 30px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Animaciones suaves */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleUp { from { transform: scale(0.8); } to { transform: scale(1); } }
 /* === AJUSTES ESPECÍFICOS PARA LAS BOTELLAS DEL CATÁLOGO === */
 
 /* Hacemos que las botellas sean más altas que los otros productos */
