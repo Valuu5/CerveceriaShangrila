@@ -213,7 +213,369 @@ footer {
   text-align: justify;
   color: #e0e0e0;
 }
+/* === ESTILOS SECCIÓN CONTACTO === */
+.contact-section {
+  background-color: #000; /* Fondo Negro Puro */
+  color: #fff; /* Texto Blanco */
+  padding: 80px 0; /* Espacio arriba y abajo para que respire */
+  width: 100%;
+}
 
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  text-align: left; /* Título alineado a la izquierda */
+}
+
+.contact-container h2 {
+  font-size: 2rem;
+  font-weight: 400; /* Letra fina como en la foto */
+  margin-bottom: 50px; /* Separación entre título y los datos */
+  color: #fff;
+}
+
+/* Contenedor de los 3 datos */
+.contact-items {
+  display: flex; /* Los pone en fila */
+  justify-content: space-between; /* Los separa equitativamente a lo ancho */
+  align-items: center;
+  flex-wrap: wrap; /* Si no caben, bajan a la siguiente línea */
+  gap: 30px; /* Espacio mínimo entre elementos */
+}
+
+/* Estilo de los enlaces/textos */
+.contact-link {
+  color: #fff;
+  text-decoration: none; /* Sin subrayado feo */
+  font-size: 1.1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre icono y texto */
+  transition: color 0.3s;
+}
+
+.contact-link:hover {
+  color: #f3b13c; /* Se pone naranja al pasar el mouse (feedback visual) */
+}
+/* === ESTILOS SECCIÓN PRODUCTOS === */
+.products-section {
+  background-color: #fff; /* Fondo blanco limpio */
+  padding: 80px 0;
+}
+
+.products-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #000;
+  text-align: left; /* Título alineado a la izquierda como en la foto */
+  padding-left: 5%; /* Alineado con el contenido */
+}
+
+/* Grid de productos */
+.products-grid {
+  display: grid;
+  /* Columnas flexibles pero forzando 2 en pantallas medianas/grandes */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* Tarjeta Individual */
+.product-card {
+  background: transparent; /* Sin fondo blanco en la tarjeta misma */
+  border: none;
+  /* Quitamos sombras y bordes para que se vea limpio como en la foto */
+}
+
+/* === CAJA DE IMAGEN (El escenario) === */
+.card-image-box {
+  width: 100%;
+  height: 200px; /* Rectángulo más apaisado */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 0; /* Bordes rectos */
+  margin-bottom: 15px;
+
+  /* Centrar el producto dentro del fondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* La imagen del producto flotando encima */
+.product-img {
+  height: 140%; /* Un poco más alto que la caja para que "salga" un poco */
+  width: auto;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+  margin-left: 65px; /* Empuja la imagen 30px hacia la derecha desde el centro */
+}
+
+.product-jockey-img{
+  height: 110%; /* Un poco más alto que la caja para que "salga" un poco */
+  width: auto;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+  margin-left: 65px; /* Empuja la imagen 30px hacia la derecha desde el centro */
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05); /* Zoom suave al pasar el mouse */
+}
+
+/* === INFORMACIÓN DEBAJO DE LA FOTO === */
+.product-info {
+  display: flex; /* Pone texto a la izq y botón a la der */
+  justify-content: space-between; /* Los separa al máximo */
+  align-items: flex-end; /* Alineados abajo */
+}
+
+.product-details {
+  text-align: left;
+}
+
+.product-details h3 {
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.price {
+  font-size: 1rem;
+  color: #000;
+  font-weight: 400;
+}
+
+/* Botón del Carrito */
+.btn-cart {
+  background-color: #fff;
+  border: 1px solid #aaa; /* Borde gris delgado */
+  width: 40px;
+  height: 35px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.btn-cart:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* === CONTADOR DEL CARRITO (BADGE) === */
+
+/* 1. Ajustamos el contenedor del icono para que el número flote sobre él */
+.nav-icons a {
+  position: relative; /* Vital para que el número no se vaya a cualquier lado */
+  display: inline-block;
+}
+
+/* 2. El circulito rojo con el número */
+.cart-badge {
+  position: absolute;
+  top: -8px;    /* Lo subimos un poco */
+  right: -10px; /* Lo movemos a la derecha */
+  background-color: #f3b13c; /* Rojo llamativo */
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%; /* Lo hace redondo */
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 2px;
+  z-index: 10;
+}
+/* === AJUSTES ESPECÍFICOS PARA LAS BOTELLAS DEL CATÁLOGO === */
+
+/* Hacemos que las botellas sean más altas que los otros productos */
+.bottle {
+  height: 150% !important; /* Más grandes que el 110% normal */
+  margin-left: 120px !important; /* Centradas (o ajústalo si quieres moverlas) */
+
+  /* Si quieres moverlas un poco a la derecha como los otros productos, usa: */
+  /* margin-left: 20px !important; */
+}
+
+/* Ajuste del fondo para las cervezas (opcional, para que se vean bien los rectángulos) */
+#catalogo .card-image-box {
+  background-size: cover;
+  /* A veces 'contain' funciona mejor si el fondo es muy ancho */
+  /* background-size: 100% 100%; */
+}
+
+/* === ESTILOS PÁGINA LOGIN === */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Centrado vertical */
+  background-color: #fff;
+}
+
+.login-container {
+  background-color: #000; /* Caja negra */
+  padding: 60px 40px;
+  width: 400px;
+  text-align: center;
+  border-radius: 0;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 15px;
+  background-color: #fff;
+  border: none;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #e0e0e0;
+}
+
+/* === ESTILOS PÁGINA CARRITO === */
+.cart-page {
+  padding-top: 120px; /* Espacio para el header fijo */
+  min-height: 80vh;
+}
+
+.cart-page h1 {
+  text-align: left;
+  margin-left: 10%;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* Item individual del carrito */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto 30px auto;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  flex-wrap: wrap; /* Para celular */
+}
+
+.cart-img-box {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-img-box img {
+  height: 130%; /* Para que sobresalga como en el index */
+}
+
+.cart-details {
+  flex: 1;
+  margin-left: 30px;
+  text-align: left;
+}
+
+.cart-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.cart-details textarea {
+  width: 100%;
+  max-width: 400px;
+  height: 60px;
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cart-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.btn-delete {
+  background: #fff;
+  border: 1px solid #000;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.quantity-control {
+  display: flex;
+  border: 1px solid #000;
+}
+
+.quantity-control button {
+  background: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.quantity-control span {
+  padding: 5px 10px;
+  line-height: 1.5;
+}
+
+/* Ajuste celular carrito */
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cart-details { margin: 20px 0; text-align: center; }
+  .cart-actions { align-items: center; }
+}
+/* === RESPONSIVE CELULAR (Mantenemos tu petición anterior) === */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr !important; /* 1 columna */
+    padding: 0 30px;
+  }
+
+  .card-image-box {
+    height: 220px; /* Un poco más alto en celular */
+  }
+}
 /* === RESPONSIVE (Para celulares) === */
 @media (max-width: 768px) {
   .about-section {

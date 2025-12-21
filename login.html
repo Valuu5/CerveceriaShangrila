@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - Shangrila</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <a href="index.html"><img src="iconoinicio.jpg" alt="Logo" class="logo-img"></a>
+  </div>
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html#inicio" class="nav-item">Inicio</a></li>
+      <li><a href="index.html#nosotros" class="nav-item">¿Quienes somos?</a></li>
+      <li><a href="index.html#catalogo" class="nav-item">Catalogo cervezas</a></li>
+      <li><a href="index.html#productos" class="nav-item">Productos</a></li>
+      <li><a href="index.html#contacto" class="nav-item">Contactanos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="login-page">
+  <div class="login-container">
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Correo electronico" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit" class="btn-login">Crear cuenta</button> </form>
+    <p id="error-msg" style="color: red; margin-top: 10px; display: none;">Credenciales incorrectas</p>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Cervecería Shangrila. Todos los derechos reservados.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
