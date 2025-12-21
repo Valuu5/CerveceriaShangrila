@@ -742,31 +742,34 @@ body.fading-out {
 
   .navbar {
     padding: 10px 20px;
-    justify-content: flex-end; /* Alinea todo a la derecha */
-    align-items: center; /* Centra verticalmente */
-  }
 
-  /* === AQUÍ ESTÁ EL ARREGLO === */
-  /* Antes decía display: none; ¡Cámbialo por esto! */
-  .nav-icons {
-    display: flex;       /* ¡Ahora sí se ven! */
-    gap: 20px;           /* Espacio entre el monito y el carrito */
-    margin-right: 20px;  /* Espacio para separarlos del menú de rayitas */
+    /* === AQUÍ ESTÁ EL CAMBIO MÁGICO === */
+    display: flex;
+    justify-content: space-between; /* Los separa: uno a cada extremo */
+    flex-direction: row-reverse;    /* ¡Invierte el orden! Iconos Izq <--> Menú Der */
     align-items: center;
   }
 
-  /* Ajustamos el tamaño de los iconos para celular */
+  /* Ajustamos los iconos para que queden bien en su nueva posición */
+  .nav-icons {
+    display: flex;
+    gap: 20px;
+    margin-right: 0; /* Ya no necesitamos margen a la derecha */
+    /* Opcional: Si quieres separarlos un poco del borde izquierdo, usa margin-left */
+  }
+
+  /* Aseguramos tamaño correcto */
   .nav-icons a {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #000;
   }
 
-  /* 2. Botón Hamburguesa */
   .menu-toggle {
     display: block;
-    font-size: 1.8rem;
+    font-size: 2rem;
     cursor: pointer;
     color: #000;
+    /* Quitamos márgenes extra si los tuviera */
   }
 
   /* 3. El menú desplegable (Mantenemos esto igual) */
