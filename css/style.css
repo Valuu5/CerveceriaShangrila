@@ -650,6 +650,19 @@ footer {
   line-height: 1.5;
 }
 
+/* === CORRECCIÓN BOTÓN "SEGUIR COMPRANDO" === */
+/* Esto fuerza a que el enlace nunca se ponga negro (active) */
+.nav-item.static-mode {
+  background-color: transparent !important; /* Sin fondo negro */
+  color: #000 !important; /* Texto siempre negro */
+  font-weight: 500; /* Grosor normal */
+}
+
+/* Opcional: Un efecto suave al pasar el mouse para que no sea tan aburrido */
+.nav-item.static-mode:hover {
+  color: #666 !important; /* Se pone gris oscuro al tocarlo */
+  background-color: transparent !important;
+}
 /* Ajuste celular carrito */
 @media (max-width: 768px) {
   .cart-item {
